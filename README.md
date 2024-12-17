@@ -38,7 +38,9 @@ Result is presented in the format m:ss.mmm
 
 ## Searching algorithms
 
-Run using `node search.js <linear|binary>`
+### Ordered
+
+Run using `node search.js ordered <linear|binary>`
 
 | **Numbers** | Linear      | Binary      |
 | ----------- | ----------- | ----------- |
@@ -67,3 +69,35 @@ Run using `node search.js <linear|binary>`
 | Strings 9   | 0.319ms     | 0.005ms     |
 | Strings 10  | 0.144ms     | 0.005ms     |
 | **Average** | **0.242ms** | **0.011ms** |
+
+### Unordered
+
+Run using `node search.js unordered <linear>`
+
+| **Numbers** | Linear      | Binary  |
+| ----------- | ----------- | ------- |
+| Numbers 1   | 0.590ms     | N/A     |
+| Numbers 2   | 0.005ms     | N/A     |
+| Numbers 3   | 0.028ms     | N/A     |
+| Numbers 4   | 0.028ms     | N/A     |
+| Numbers 5   | 0.084ms     | N/A     |
+| Numbers 6   | 0.040ms     | N/A     |
+| Numbers 7   | 0.057ms     | N/A     |
+| Numbers 8   | 0.046ms     | N/A     |
+| Numbers 9   | 0.078ms     | N/A     |
+| Numbers 10  | 0.014ms     | N/A     |
+| **Average** | **0.097ms** | **N/A** |
+
+| **Strings** | Linear      | Binary  |
+| ----------- | ----------- | ------- |
+| Strings 1   | 0.857ms     | N/A     |
+| Strings 2   | 0.051ms     | N/A     |
+| Strings 3   | 0.314ms     | N/A     |
+| Strings 4   | 0.296ms     | N/A     |
+| Strings 5   | 0.404ms     | N/A     |
+| Strings 6   | 0.213ms     | N/A     |
+| Strings 7   | 0.570ms     | N/A     |
+| Strings 8   | 0.442ms     | N/A     |
+| Strings 9   | 0.536ms     | N/A     |
+| Strings 10  | 0.251ms     | N/A     |
+| **Average** | **0.393ms** | **N/A** |

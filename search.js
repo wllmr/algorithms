@@ -1,10 +1,14 @@
-const [, , modulePath] = process.argv;
+const [, , type, modulePath] = process.argv;
 
-const numbersLists = require("./data/nested_numbers_large_array_sorted.json");
-const numbersListsResult = require("./data/nested_numbers_large_array_search.json");
+const numbersListsOrdered = require("./data/nested_numbers_large_array_sorted.json");
+const numbersListsResultOrdered = require("./data/nested_numbers_large_array_search.json");
+const stringsListsOrdered = require("./data/nested_strings_large_array_sorted.json");
+const stringsListsResultOrdered = require("./data/nested_strings_large_array_search.json");
 
-const stringsLists = require("./data/nested_strings_large_array_sorted.json");
-const stringsListsResult = require("./data/nested_strings_large_array_search.json");
+const numbersListsUnordered = require("./data/nested_numbers_large_array.json");
+const numbersListsResultUnordered = require("./data/nested_numbers_large_array_search_unordered.json");
+const stringsListsUnordered = require("./data/nested_strings_large_array.json");
+const stringsListsResultUnordered = require("./data/nested_strings_large_array_search_unordered.json");
 
 if (!modulePath) {
   console.error("Please provide a module path.");
@@ -12,30 +16,50 @@ if (!modulePath) {
 }
 
 try {
-  const fn = require(`./search/${modulePath}.js`);
+  let fn, numbersLists, numbersResultLists, stringsLists, stringsResultLists;
+
+  if (type === "ordered") {
+    fn = require(`./search/${modulePath}.js`);
+    numbersLists = numbersListsOrdered;
+    numbersResultLists = numbersListsResultOrdered;
+    stringsLists = stringsListsOrdered;
+    stringsResultLists = stringsListsResultOrdered;
+  }
+
+  if (type === "unordered") {
+    fn = require(`./search/${modulePath}.js`);
+    numbersLists = numbersListsUnordered;
+    numbersResultLists = numbersListsResultUnordered;
+    stringsLists = stringsListsUnordered;
+    stringsResultLists = stringsListsResultUnordered;
+  }
+
+  if (typeof fn !== "function") {
+    throw new Error("You need to specify if its ordered or unordered");
+  }
 
   if (typeof fn === "function") {
     console.info(`Running search: ${modulePath}\n`);
 
-    numbersListsResult[0].forEach((search, index) => {
+    numbersResultLists[0].forEach((search, index) => {
       console.time(`Numbers list ${index + 1}`);
       const result = fn(numbersLists[index], search);
       console.timeEnd(`Numbers list ${index + 1}`);
       console.log(
         "Result: ",
         result,
-        result === numbersListsResult[1][index] ? "SUCCESS" : "FAIL"
+        result === numbersResultLists[1][index] ? "SUCCESS" : "FAIL"
       );
     });
 
-    stringsListsResult[0].forEach((search, index) => {
+    stringsResultLists[0].forEach((search, index) => {
       console.time(`Strings list ${index + 1}`);
       const result = fn(stringsLists[index], search);
       console.timeEnd(`Strings list ${index + 1}`);
       console.log(
         "Result: ",
         result,
-        result === stringsListsResult[1][index] ? "SUCCESS" : "FAIL"
+        result === stringsResultLists[1][index] ? "SUCCESS" : "FAIL"
       );
     });
   } else {
