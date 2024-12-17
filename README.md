@@ -40,64 +40,64 @@ Result is presented in the format m:ss.mmm
 
 ### Ordered
 
-Run using `node search.js ordered <linear|binary>`
+Run using `node search.js ordered <linear|binary|jump|interpolation>`
 
-| **Numbers** | Linear      | Binary      |
-| ----------- | ----------- | ----------- |
-| Numbers 1   | 0.532ms     | 0.153ms     |
-| Numbers 2   | 0.020ms     | 0.009ms     |
-| Numbers 3   | 0.028ms     | 0.004ms     |
-| Numbers 4   | 0.022ms     | 0.004ms     |
-| Numbers 5   | 0.072ms     | 0.061ms     |
-| Numbers 6   | 0.061ms     | 0.007ms     |
-| Numbers 7   | 0.038ms     | 0.003ms     |
-| Numbers 8   | 0.030ms     | 0.004ms     |
-| Numbers 9   | 0.064ms     | 0.011ms     |
-| Numbers 10  | 0.014ms     | 0.010ms     |
-| **Average** | **0.088ms** | **0.027ms** |
+| **Numbers** | Linear      | Binary      | Jump        | Interpolation |
+| ----------- | ----------- | ----------- | ----------- | ------------- |
+| Numbers 1   | 0.532ms     | 0.153ms     | 0.087ms     | 0.072ms       |
+| Numbers 2   | 0.020ms     | 0.009ms     | 0.007ms     | 0.005ms       |
+| Numbers 3   | 0.028ms     | 0.004ms     | 0.025ms     | 0.070ms       |
+| Numbers 4   | 0.022ms     | 0.004ms     | 0.016ms     | 0.004ms       |
+| Numbers 5   | 0.072ms     | 0.061ms     | 0.075ms     | 0.061ms       |
+| Numbers 6   | 0.061ms     | 0.007ms     | 0.078ms     | 0.005ms       |
+| Numbers 7   | 0.038ms     | 0.003ms     | 0.059ms     | 0.006ms       |
+| Numbers 8   | 0.030ms     | 0.004ms     | 0.025ms     | 0.008ms       |
+| Numbers 9   | 0.064ms     | 0.011ms     | 0.079ms     | 0.004ms       |
+| Numbers 10  | 0.014ms     | 0.010ms     | 0.016ms     | 0.005ms       |
+| **Average** | **0.088ms** | **0.027ms** | **0.048ms** | **0.024ms**   |
 
-| **Strings** | Linear      | Binary      |
-| ----------- | ----------- | ----------- |
-| Strings 1   | 0.668ms     | 0.018ms     |
-| Strings 2   | 0.022ms     | 0.015ms     |
-| Strings 3   | 0.220ms     | 0.011ms     |
-| Strings 4   | 0.202ms     | 0.012ms     |
-| Strings 5   | 0.236ms     | 0.012ms     |
-| Strings 6   | 0.093ms     | 0.011ms     |
-| Strings 7   | 0.288ms     | 0.013ms     |
-| Strings 8   | 0.229ms     | 0.005ms     |
-| Strings 9   | 0.319ms     | 0.005ms     |
-| Strings 10  | 0.144ms     | 0.005ms     |
-| **Average** | **0.242ms** | **0.011ms** |
+| **Strings** | Linear      | Binary      | Jump        | Interpolation |
+| ----------- | ----------- | ----------- | ----------- | ------------- |
+| Strings 1   | 0.668ms     | 0.018ms     | 0.096ms     | N/A           |
+| Strings 2   | 0.022ms     | 0.015ms     | 0.018ms     | N/A           |
+| Strings 3   | 0.220ms     | 0.011ms     | 0.088ms     | N/A           |
+| Strings 4   | 0.202ms     | 0.012ms     | 0.083ms     | N/A           |
+| Strings 5   | 0.236ms     | 0.012ms     | 0.088ms     | N/A           |
+| Strings 6   | 0.093ms     | 0.011ms     | 0.063ms     | N/A           |
+| Strings 7   | 0.288ms     | 0.013ms     | 0.135ms     | N/A           |
+| Strings 8   | 0.229ms     | 0.005ms     | 0.065ms     | N/A           |
+| Strings 9   | 0.319ms     | 0.005ms     | 0.093ms     | N/A           |
+| Strings 10  | 0.144ms     | 0.005ms     | 0.066ms     | N/A           |
+| **Average** | **0.242ms** | **0.011ms** | **0.080ms** | **N/A**       |
 
 ### Unordered
 
 Run using `node search.js unordered <linear>`
 
-| **Numbers** | Linear      | Binary  |
-| ----------- | ----------- | ------- |
-| Numbers 1   | 0.590ms     | N/A     |
-| Numbers 2   | 0.005ms     | N/A     |
-| Numbers 3   | 0.028ms     | N/A     |
-| Numbers 4   | 0.028ms     | N/A     |
-| Numbers 5   | 0.084ms     | N/A     |
-| Numbers 6   | 0.040ms     | N/A     |
-| Numbers 7   | 0.057ms     | N/A     |
-| Numbers 8   | 0.046ms     | N/A     |
-| Numbers 9   | 0.078ms     | N/A     |
-| Numbers 10  | 0.014ms     | N/A     |
-| **Average** | **0.097ms** | **N/A** |
+| **Numbers** | Linear      |
+| ----------- | ----------- |
+| Numbers 1   | 0.590ms     |
+| Numbers 2   | 0.005ms     |
+| Numbers 3   | 0.028ms     |
+| Numbers 4   | 0.028ms     |
+| Numbers 5   | 0.084ms     |
+| Numbers 6   | 0.040ms     |
+| Numbers 7   | 0.057ms     |
+| Numbers 8   | 0.046ms     |
+| Numbers 9   | 0.078ms     |
+| Numbers 10  | 0.014ms     |
+| **Average** | **0.097ms** |
 
-| **Strings** | Linear      | Binary  |
-| ----------- | ----------- | ------- |
-| Strings 1   | 0.857ms     | N/A     |
-| Strings 2   | 0.051ms     | N/A     |
-| Strings 3   | 0.314ms     | N/A     |
-| Strings 4   | 0.296ms     | N/A     |
-| Strings 5   | 0.404ms     | N/A     |
-| Strings 6   | 0.213ms     | N/A     |
-| Strings 7   | 0.570ms     | N/A     |
-| Strings 8   | 0.442ms     | N/A     |
-| Strings 9   | 0.536ms     | N/A     |
-| Strings 10  | 0.251ms     | N/A     |
-| **Average** | **0.393ms** | **N/A** |
+| **Strings** | Linear      |
+| ----------- | ----------- |
+| Strings 1   | 0.857ms     |
+| Strings 2   | 0.051ms     |
+| Strings 3   | 0.314ms     |
+| Strings 4   | 0.296ms     |
+| Strings 5   | 0.404ms     |
+| Strings 6   | 0.213ms     |
+| Strings 7   | 0.570ms     |
+| Strings 8   | 0.442ms     |
+| Strings 9   | 0.536ms     |
+| Strings 10  | 0.251ms     |
+| **Average** | **0.393ms** |

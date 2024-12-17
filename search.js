@@ -16,10 +16,10 @@ if (!modulePath) {
 }
 
 try {
-  let fn, numbersLists, numbersResultLists, stringsLists, stringsResultLists;
+  const fn = require(`./search/${modulePath}.js`);
+  let numbersLists, numbersResultLists, stringsLists, stringsResultLists;
 
   if (type === "ordered") {
-    fn = require(`./search/${modulePath}.js`);
     numbersLists = numbersListsOrdered;
     numbersResultLists = numbersListsResultOrdered;
     stringsLists = stringsListsOrdered;
@@ -27,15 +27,10 @@ try {
   }
 
   if (type === "unordered") {
-    fn = require(`./search/${modulePath}.js`);
     numbersLists = numbersListsUnordered;
     numbersResultLists = numbersListsResultUnordered;
     stringsLists = stringsListsUnordered;
     stringsResultLists = stringsListsResultUnordered;
-  }
-
-  if (typeof fn !== "function") {
-    throw new Error("You need to specify if its ordered or unordered");
   }
 
   if (typeof fn === "function") {
